@@ -1,0 +1,75 @@
+<form class="registerForm" [formGroup]="registerForm">
+  <fieldset>
+    <legend>Register</legend>
+    <table>
+      <tr>
+        <td>
+          <label>Name</label>
+        </td>
+        <td>
+          <input type="text" name="name" formControlName="name">
+          <div *ngIf="registerForm.controls.name.invalid && registerForm.controls.name.touched">
+            Please fill in your name
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Username</label>
+        </td>
+        <td>
+          <input type="text" name="username" formControlName="username">
+          <div *ngIf="registerForm.controls.username.invalid && registerForm.controls.username.touched">
+            Please fill in your username
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Password</label>
+        </td>
+        <td>
+          <input type="password" name="password" formControlName="password">
+          <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+            Invalid password
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Confirm Password</label>
+        </td>
+        <td>
+          <input type="password" name="confirmPassword" formControlName="confirmPassword">
+          <div *ngIf="(registerForm.controls.confirmPassword.invalid || (registerForm.controls.password.value != registerForm.controls.password.value)) && registerForm.controls.confirmPassword.touched">
+            Passwords don't match
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Email</label>
+        </td>
+        <td>
+          <input type="email" name="email" formControlName="email">
+          <div *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched">
+            Invalid email
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Mobile no.</label>
+        </td>
+        <td>
+          <input type="number" name="mobile" formControlName="mobile">
+          <div *ngIf="registerForm.controls.mobile.invalid && registerForm.controls.mobile.touched">
+            Invalid Mobile no.
+          </div>
+        </td>
+      </tr>
+    </table>
+    <button type="reset" name="cancel">Cancel</button>
+    <button type="submit" name="submit" [disabled]="!registerForm.valid">Submit</button>
+  </fieldset>
+</form>
